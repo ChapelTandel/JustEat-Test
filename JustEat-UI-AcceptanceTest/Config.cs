@@ -15,5 +15,10 @@ namespace JustEat_UI_AcceptanceTest
         {
             return ConfigurationManager.AppSettings["environment"];
         }
+
+        public static string GetConfigValue(string value)
+        {
+            return ConfigurationManager.AppSettings[value];
+        }
     }
 }

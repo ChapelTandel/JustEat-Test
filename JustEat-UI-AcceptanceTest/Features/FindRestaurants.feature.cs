@@ -108,11 +108,11 @@ namespace JustEat_UI_AcceptanceTest.Features
 #line 22
 this.ScenarioSetup(scenarioInfo);
 #line 23
-  testRunner.Given("I search and select a restaurant in \"HA7 2AB\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.Given("I am on a restaurant\'s menu page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 24
   testRunner.When("I add an item to the basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
-  testRunner.Then("I should see the item in the basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("I see the item in the basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

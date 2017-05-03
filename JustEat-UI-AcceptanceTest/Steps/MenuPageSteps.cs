@@ -14,7 +14,14 @@ namespace JustEat_UI_AcceptanceTest.Steps
             menuPage.AddAnItemToTheBasket();
         }
 
-        [Then(@"I should see the item in the basket")]
+        [Given(@"I am on a restaurant's menu page")]
+        public void GivenIAmOnARestaurantSMenuPage()
+        {
+            var menuPage = new MenuPage(Context.Driver);
+            menuPage.Open(Config.GetConfigValue("baseUrl") + Config.GetConfigValue("testRestaurant"));
+        }
+
+        [Then(@"I see the item in the basket")]
         public void ThenIShouldSeeTheItemInTheBasket()
         {
             var currentProduct = ScenarioContext.Current.Get<string>("product");

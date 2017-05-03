@@ -7,7 +7,7 @@ namespace JustEat_UI_AcceptanceTest
     [Binding]
     public class WebdriverHooks
     {
-        [BeforeTestRun]
+        [BeforeScenario]
         public static void CreateDriver()
         {
             Context.Driver = new ChromeDriver();
@@ -16,7 +16,7 @@ namespace JustEat_UI_AcceptanceTest
             Context.Driver.Manage().Timeouts().SetScriptTimeout(TimeSpan.FromSeconds(60));
         }
 
-        [AfterTestRun]
+        [AfterScenario]
         public static void CloseDriver()
         {
             Context.Driver.Quit();

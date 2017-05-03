@@ -10,15 +10,15 @@ namespace JustEat_UI_AcceptanceTest.Page
     {
         private readonly By _addButton = By.CssSelector(".addButton");
 
-        [FindsBy(How = How.CssSelector, Using = ".basketItemDescription")]
+        [FindsBy(How = How.CssSelector, Using = ".basketItemDescription")] 
         private readonly IList<IWebElement> _listOfProductsInBasketLabel = new List<IWebElement>();
 
         private readonly By _productName = By.CssSelector("h4.name");
 
-        [FindsBy(How = How.CssSelector, Using = ".product")]
+        [FindsBy(How = How.CssSelector, Using = ".product")] 
         private readonly IList<IWebElement> ProductList = new List<IWebElement>();
 
-        [FindsBy(How = How.XPath, Using = ".//label[contains(text(),'Item successfully added')]")]
+        [FindsBy(How = How.XPath, Using = ".//label[contains(text(),'Item successfully added')]")] 
         private IWebElement _addNotification;
 
         public MenuPage(IWebDriver driver) : base(driver)
@@ -35,15 +35,18 @@ namespace JustEat_UI_AcceptanceTest.Page
             }
         }
 
-
         public MenuPage AddAnItemToTheBasket()
         {
+            Driver.Manage().Cookies.AddCookie(new Cookie("je-location", "AR51 1AA"));
             ScenarioContext.Current.Add("product", ProductList.First().FindElement(_productName).Text);
 
             ProductList.First().FindElement(_addButton).Click();
+            return this;
+        }
 
-            WaitFor(10).Until(d => _addNotification.Displayed);
-
+        public MenuPage Open(string restaurant)
+        {
+            Driver.Navigate().GoToUrl(restaurant);
             return this;
         }
     }
